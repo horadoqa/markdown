@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor Markdown</title>
+
+  <!-- Marked.js -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Highlight.js (cores para código) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="theme-style">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background: #24292e;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      padding: 6px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    textarea {
+      width: 50%;
+      padding: 20px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    #preview {
+      width: 50%;
+      padding: 20px;
+      overflow-y: auto;
+      border-left: 1px solid #ddd;
+    }
+
+    pre {
+      background: #f6f8fa;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 4px;
+    }
+
+    /* Dark mode */
+    body.dark {
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+
+    body.dark textarea {
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+
+    body.dark #preview {
+      background: #0d1117;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h3>Editor Markdown</h3>
+  <p>Markdown é uma linguagem de marcação leve usada para formatar texto de forma simples e rápida — sem precisar escrever HTML.</p>
+  <button onclick="toggleTheme()">🌙 Alternar Tema</button>
+</header>
+
+<div class="container">
+  <textarea id="editor">
+# Dicas sobre Markdown
+
+## Cabeçalhos
+# h1
+## h2
+### h3
+
+---
+
+## Ênfase
+*Itálico*  
+**Negrito**
+
+---
+
+## Lista
+- Item 1
+- Item 2
+
+---
+
+## Código
+```javascript
+console.log("Olá, mundo!");
+````
+
+---
+
+## Checklist
+
+* [x] Feito
+* [ ] Pendente
+
+---
+
+## Dropdown
+
+<details>
+<summary>Clique aqui</summary>
+
+* Item escondido
+* Outro item
+
+</details>
+  </textarea>
+
+  <div id="preview"></div>
+</div>
+
+<script>
+  const editor = document.getElementById("editor");
+  const preview = document.getElementById("preview");
+
+  function updatePreview() {
+    preview.innerHTML = marked.parse(editor.value);
+
+    document.querySelectorAll("pre code").forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  }
+
+  editor.addEventListener("input", updatePreview);
+
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+
+    const themeStyle = document.getElementById("theme-style");
+    if (document.body.classList.contains("dark")) {
+      themeStyle.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
+    } else {
+      themeStyle.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+    }
+  }
+
+  // Inicializa
+  updatePreview();
+</script>
+
+</body>
+</html>

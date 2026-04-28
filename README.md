@@ -20,7 +20,7 @@ Abaixo estão alguns exemplos práticos de uso do Markdown:
 - [Caixa de Texto](./exemplos/caixa.md)
 - [Citações](./exemplos/citacoes.md)
 - [Código em Linha](./exemplos/codigo.md)
-- [DropDropdown (Seção recolhida)](./exemplos/dropdown.md)
+- [Dropdown (Seção recolhida)](./exemplos/dropdown.md)
 - [Imagem](./exemplos/imagem.md)
 - [Links](./exemplos/links.md)
 - [Listas](./exemplos/listas.md)

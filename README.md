@@ -15,6 +15,7 @@ A proposta do Markdown é permitir que você escreva usando símbolos fáceis de
 Abaixo estão alguns exemplos práticos de uso do Markdown:
 
 - [Alertas](./exemplos/alertas.md)
+- [Âncoras](./exemplos/ancora.md)
 - [Bloco de Código](./exemplos/bloco.md)
 - [Cabeçalhos](./exemplos/cabecalhos.md)
 - [Caixa de Texto](./exemplos/caixa.md)
@@ -24,6 +25,7 @@ Abaixo estão alguns exemplos práticos de uso do Markdown:
 - [Imagem](./exemplos/imagem.md)
 - [Links](./exemplos/links.md)
 - [Listas](./exemplos/listas.md)
+- [Menu com submenu (Markdown puro)](./exemplos/submenu.md)
 - [Tabelas](./exemplos/tabelas.md)
 - [Texto](./exemplos/texto.md)
 
